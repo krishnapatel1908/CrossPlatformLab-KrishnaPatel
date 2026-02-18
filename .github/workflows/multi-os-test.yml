@@ -28,7 +28,7 @@ jobs:
       - name: Completion Message
         run: echo "Ubuntu tests completed"
 
-  test-windows:
+   test-windows:
     runs-on: windows-latest
     steps:
       - name: Print Start Message
@@ -37,7 +37,7 @@ jobs:
       - name: Display OS Information
         run: |
           systeminfo
-          ver
+          [System.Environment]::OSVersion.VersionString
 
       - name: Create Test File
         run: echo "Windows test by Krishna Patel" > test-windows.txt
@@ -47,3 +47,4 @@ jobs:
 
       - name: Completion Message
         run: echo "Windows tests completed"
+
