@@ -1,5 +1,3 @@
-## YAML Template.
----
 name: Multi-OS Testing - Krishna Patel
 
 on:
@@ -28,23 +26,25 @@ jobs:
       - name: Completion Message
         run: echo "Ubuntu tests completed"
 
-   test-windows:
+  test-windows:
     runs-on: windows-latest
     steps:
       - name: Print Start Message
         run: echo "Testing on Windows..."
 
       - name: Display OS Information
+        shell: cmd
         run: |
           systeminfo
-          [System.Environment]::OSVersion.VersionString
+          ver
 
       - name: Create Test File
-        run: echo "Windows test by Krishna Patel" > test-windows.txt
+        shell: cmd
+        run: echo Windows test by Krishna Patel> test-windows.txt
 
       - name: Display File Content
+        shell: cmd
         run: type test-windows.txt
 
       - name: Completion Message
         run: echo "Windows tests completed"
-
