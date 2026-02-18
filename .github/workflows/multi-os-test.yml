@@ -1,0 +1,49 @@
+## YAML Template.
+---
+name: Multi-OS Testing - Krishna Patel
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Start Message
+        run: echo "Testing on Ubuntu..."
+
+      - name: Display OS Information
+        run: |
+          uname -a
+          cat /etc/os-release
+
+      - name: Create Test File
+        run: echo "Ubuntu test by Krishna Patel" > test-ubuntu.txt
+
+      - name: Display File Content
+        run: cat test-ubuntu.txt
+
+      - name: Completion Message
+        run: echo "Ubuntu tests completed"
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Print Start Message
+        run: echo "Testing on Windows..."
+
+      - name: Display OS Information
+        run: |
+          systeminfo
+          ver
+
+      - name: Create Test File
+        run: echo "Windows test by Krishna Patel" > test-windows.txt
+
+      - name: Display File Content
+        run: type test-windows.txt
+
+      - name: Completion Message
+        run: echo "Windows tests completed"
